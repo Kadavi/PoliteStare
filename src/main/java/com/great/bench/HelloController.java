@@ -38,7 +38,7 @@ public class HelloController {
     @RequestMapping(method = RequestMethod.GET)
     public String printWelcome(ModelMap model) throws ExecutionException, InterruptedException {
 
-        Future<String> result = us.processImage("/home/ubuntu/sample.jpg");
+        Future<String> result = us.processImage("/var/lib/tomcat7/webapps/bucket/sample.jpg");
         //model.addAttribute("message", result.get());
 
         System.out.println(result.get());
@@ -52,10 +52,10 @@ public class HelloController {
                                             @RequestParam(value = "key", required = false) String key) throws Exception {
 
         Map<String, MultipartFile> files = ((MultipartHttpServletRequest) req).getFileMap();
-        OutputStream output = new FileOutputStream("/home/ubuntu/" + files.get("fileupload").getOriginalFilename());
+        OutputStream output = new FileOutputStream("/var/lib/tomcat7/webapps/bucket/" + files.get("fileupload").getOriginalFilename());
         IOUtils.copy(files.get("fileupload").getInputStream(), output);
 
-        Future<String> result = us.processImage("/home/ubuntu/" + files.get("fileupload").getOriginalFilename());
+        Future<String> result = us.processImage("/var/lib/tomcat7/webapps/bucket/" + files.get("fileupload").getOriginalFilename());
         String response = result.get();
 
         System.out.println(dateFormat.format(new Date()));

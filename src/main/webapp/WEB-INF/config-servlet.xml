@@ -10,20 +10,25 @@
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <context:component-scan base-package="com.great.bench"/>
-    <mvc:annotation-driven />
+    <mvc:annotation-driven/>
 
-    <mvc:resources mapping="/resources/**" location="/resources/" />
+    <mvc:resources mapping="/resources/**" location="/WEB-INF/resources/"/>
 
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="maxUploadSize" value="1048576000"/>
-        <property name="defaultEncoding" value="UTF-8" />
+        <property name="defaultEncoding" value="UTF-8"/>
     </bean>
 
-    <mongo:mongo host="127.0.0.1" port="27017" />
-    <mongo:db-factory id="mongoDbFactory" dbname="testdb" />
+    <mongo:db-factory id="mongoDbFactory" host="ds053698.mongolab.com"
+                                          port="53698"
+                                          dbname="puddy"
+                                          username="Kadavi"
+                                          password="grantdawsoN1"/>
 
     <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
-        <constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
+
+        <constructor-arg name="mongoDbFactory" ref="mongoDbFactory"/>
+
     </bean>
 
     <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">

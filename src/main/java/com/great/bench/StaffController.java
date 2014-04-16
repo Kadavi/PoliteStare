@@ -116,6 +116,7 @@ public class StaffController {
     @ResponseBody
     String login(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 
+        System.out.println("was here");
         String email = req.getParameter("email");
         String password = req.getParameter("password");
 
