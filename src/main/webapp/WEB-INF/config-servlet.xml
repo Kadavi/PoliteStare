@@ -19,8 +19,8 @@
         <property name="defaultEncoding" value="UTF-8"/>
     </bean>
 
-    <mongo:db-factory id="mongoDbFactory" host="ds053698.mongolab.com"
-                                          port="53698"
+    <mongo:db-factory id="mongoDbFactory" host="horace.1.mongolayer.com"
+                                          port="10085"
                                           dbname="puddy"
                                           username="Kadavi"
                                           password="grantdawsoN1"/>

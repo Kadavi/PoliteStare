@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 
-@Document(collection = "user")
+@Document(collection = "gentsandbroads")
 public class Member {
 
     final static String LOTTO_POOL = "ABCD0abcd1EFGH2efgh3IJKL4ijkl5MNOP6mnop7QRST8qrst9UVWX0uvwxYZyz";
